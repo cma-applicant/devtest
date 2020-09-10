@@ -8,7 +8,7 @@ CREATE TABLE `Artwork` (
 
 
 CREATE TABLE `Creator` (
-  `BatchId` varchar(28) NOT NULL,
+  `BatchId` varchar(32) NOT NULL,
   `Role` varchar(64) NOT NULL,
   `Description` varchar(256) NOT NULL,
   `ArtworkAccessionNumber` varchar(32) NOT NULL
