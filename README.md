@@ -9,6 +9,6 @@ Instructions for running locally:
 
 4) To complete part 2 of the application: copy and paste the content of results.json to the textbox in index.php and click 'Submit'. This will insert all the data into the local database and redirect the user to a webpage for viewing the results
 
-To see the front end running in production, visit www.tims.pizza/cma
+To see the front end running in production, visit www.tims.pizza/cma and paste the contents of 'example-output.json'
 
 Note: at present, there is very little validation on the form submission. It hasn't fully been tested to prevent sql injection, so please be gentle :)
