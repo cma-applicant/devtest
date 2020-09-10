@@ -13,7 +13,7 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     else {
-        $batchId = $_GET['batchId'];
+        $batchId = clean_param($_GET['batchId']);
         
         // get all departments associated with uploaded batch
         $sql = "select distinct department from Artwork where BatchId='" . $batchId . "'";
@@ -33,7 +33,7 @@
         
         // get artwork with optional department
         $sql = "select distinct a.AccessionNumber, a.Title, a.Tombstone, a.Department, c.Role, c.Description from Artwork a inner join Creator c on c.ArtworkAccessionNumber=a.AccessionNumber and a.BatchId='" . $batchId . "'";
-        $dept = $_GET['dept'];
+        $dept = clean_param($_GET['dept']);
         if (strlen($dept) != 0) {
             if ($dept != 'all') {
                 $sql .= " and a.Department='" . $dept . "'";
@@ -83,6 +83,15 @@
     }
     
     mysqli_close($con);
+    
+    function clean_param($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      $data = str_replace('\'', '&#39;', $data);
+      $data = str_replace('--', '', $data);
+      return $data;
+    }
 ?> 
         </div>
     </body>
