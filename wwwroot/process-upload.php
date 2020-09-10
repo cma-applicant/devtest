@@ -20,11 +20,11 @@
         
         // insert data in db
         foreach ($arr as &$artwork) {
-            $insert = "INSERT INTO Artwork(BatchId, AccessionNumber, Title, Tombstone, Department) Values('" . $batchId . "', '" . $artwork->AccessionNumber . "', '" . $artwork->Title . "', '" . $artwork->Tombstone . "', '" . $artwork->Department . "')";
+            $insert = "INSERT INTO Artwork(BatchId, AccessionNumber, Title, Tombstone, Department) Values('" . $batchId . "', '" . clean_text($artwork->AccessionNumber) . "', '" . clean_text($artwork->Title) . "', '" . clean_text($artwork->Tombstone) . "', '" . clean_text($artwork->Department) . "')";
             $result = mysqli_query($con,$insert);
             
             foreach($artwork->Creator as &$creator){
-                $insert = "INSERT INTO Creator(BatchId, Role, Description, ArtworkAccessionNumber) VALUES('" . $batchId . "', '" . $creator->Role . "', '" . $creator->Description . "', '" . $artwork->AccessionNumber . "')";
+                $insert = "INSERT INTO Creator(BatchId, Role, Description, ArtworkAccessionNumber) VALUES('" . $batchId . "', '" . clean_text($creator->Role) . "', '" . clean_text($creator->Description) . "', '" . clean_text($artwork->AccessionNumber) . "')";
                 $result = mysqli_query($con,$insert);
             }
         }
@@ -34,6 +34,15 @@
     }
     
     mysqli_close($con);
+    
+    function clean_text($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      $data = str_replace('\'', '&#39;', $data);
+      $data = str_replace('--', '', $data);
+      return $data;
+    }
 ?>
     </body>
 </html>
