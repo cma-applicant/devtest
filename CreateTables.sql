@@ -1,6 +1,6 @@
 CREATE TABLE `Artwork` (
   `BatchId` varchar(32) NOT NULL,
-  `AccessionNumber` varchar(50) NOT NULL,
+  `AccessionNumber` varchar(32) NOT NULL,
   `Title` varchar(256) NOT NULL,
   `Tombstone` text NOT NULL,
   `Department` varchar(128) NOT NULL
