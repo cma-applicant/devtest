@@ -72,6 +72,7 @@
                     echo '<br /><br /><br /><br />';
                     echo '<a href="' . $img . '" class="progressive replace">';
                     echo '<img src="' . $smallImg . '" class="preview" alt="image" /></a>';
+                    echo '<br />Title: ' . $row['Title'] . '<br />';
                     echo '<br />Tombstone: ' . $row['Tombstone'] . '<br />';
                     echo "<br />Department: <a href=\"results.php?batchId=" . $batchId . "&dept=" .$row['Department'] . "\">" . $row['Department'] . "</a><br />";
                     echo '<br />Accession Number: ' . $row['AccessionNumber'] . '<br />';
