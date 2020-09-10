@@ -1,0 +1,6 @@
+fix skewed art (Japanese Art for reference)
+validation on php form submit
+replace textbox with file upload 
+set up arguments for python script for more control of records being accessed
+ultimately replace all of this with mvc web app with api endpoints for json to hit
+pick out javascript framework for frontend
